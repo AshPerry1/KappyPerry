@@ -1,0 +1,130 @@
+Brock Blueprint: Personal Branding with a Purpose 
+MARK 460 - Digital Marketing Portfolio
+Digital Marketing Portfolio Stage 1: Content Creation (170 points)
+
+This project is the first stage of your Digital Marketing Portfolio — a website designed to showcase your skills, communicate your personal brand, and demonstrate your ability to apply digital marketing strategy in a real-world context. In this stage, you’ll build the foundation of your site and create high-quality content that reflects who you are as a marketer.
+Your goal is to design a portfolio that is both strategic, searchable, and visually appealing. You’ll integrate what we’ve learned about SEO, web design, analytics, and content strategy into every part of your site.
+
+Project Requirements
+
+	•	Visual Identity
+
+From a branding perspective, it is important to create a consistent visual identity. Please read each of the linked resources in the section below as you prepare the following areas of your visual identity:
+
+	•	Color palette - research the psychology of color which suggests that different hues can impact human behavior and perceptions differently. Your color selection should reflect and align with your visual identity goals. 
+	•	Layout - Text content should be formatted thoughtfully using bullets, pull quotes, and headers as appropriate.
+	•	Fonts - Fonts are also an integral part of the design process - the fonts we use also have the power to influence feelings, thoughts, and even behavior. 
+	•	High-quality photos - This can be a headshot or a lifestyle picture depending on your goals, but the picture should look professional. Logos and other images can also be included/incorporated throughout (when necessary). Be sure images are cropped appropriately and not pixelated. 
+	•	Tone and voice - Research and strategically implement throughout. For help with developing your writing style, check out Mailchimp’s Style Guide. Although this level of detail is not necessary for this assignment, you should consider your tone and voice. How do you want your portfolio to appear to your viewers? Professionalism does not mean boring! 
+
+Remember that it is important to keep these items consistent across all media platforms to develop and maintain a consistent visual identity which can also increase your personal brand recognition.  
+	•	Web Design & User Experience (UX)
+Design is about more than aesthetics. It’s also about functionality. Your website should feel intuitive, accessible, and engaging to users while meeting professional standards of usability. 
+	•	Navigation - Menus should be clear, concise, and logically structured. Visitors should be able to easily find key pages within two clicks.
+	•	Accessibility - Follow ADA accessibility guidelines (scroll almost to the end to the “How Can I Make my Website ADA-Compliant" section). Include descriptive alt text for all images, ensure strong color contrast, and use descriptive button labels (e.g., “Contact Me” instead of “Click Here”). It is recommended that you use a website accessibility checker prior to publication.
+	•	Responsive Design - Your site must display and function properly on desktop, tablet, and mobile devices.
+	•	Call to Action - Include at least one prominent, clear CTA (e.g., “Contact Me,” “Download My Resume,” “View My Work”) to encourage engagement.
+	•	Error free content - The portfolio should be error free. Be sure to check for spelling and grammar mistakes.
+Think like a user. If someone landed on your site for the first time, could they instantly understand who you are, what you offer, and how to connect with you?
+	•	SEO Strategy & Integration
+Search Engine Optimization (SEO) is how people find your portfolio online — and how you signal relevance and credibility to both users and search engines. In this section, you’ll apply the core SEO principles we’ve covered in class to make your site more discoverable, strategic, and aligned with your personal brand.
+Your portfolio must include the following components on every page:
+	•	Title Tags (3–8 words): The clickable headline that appears in search results and browser tabs. Each page should have a unique, descriptive title tag that reflects the page’s purpose and includes your target keyword(s). For example, instead of “About,” use something more optimized like “About Jane Smith – Digital Marketing Strategist.”
+	•	Meta Descriptions (120–160 characters): The short summary shown below the title tag in search results. Write clear, compelling descriptions that incorporate relevant keywords naturally and encourage users to click. For example: “Jane Smith is a digital marketing strategist specializing in social media strategy, content marketing, and SEO-driven brand growth.”
+	•	Alt Text for All Images: Every image on your site should include alternative (alt) text describing what’s shown. Alt text improves accessibility for screen readers and gives search engines more context about your content. Keep descriptions concise and relevant. For example, “Screenshot of Google Analytics dashboard showing 40% audience growth.”
+	•	Headers (H1 and H2) Optimized for Keywords: Use your headings not just for structure but also for SEO. Each page should have one main H1 tag that clearly signals what the page is about, and supporting H2 tags that include secondary or related keywords. For instance, your H1 might be “Social Media Marketing Case Studies,” and your H2 could be “Content Campaign Performance Metrics.”
+	•	Internal Linking: Include at least one internal link on each page that connects to another relevant page on your site. Internal links help visitors navigate your content more easily and help search engines understand the structure and hierarchy of your site. For example, on your “About” page, you might link to your “Work Samples” page with text like, “See examples of my campaigns here.”
+Approach this section as if you were optimizing a client website. Search engines reward clarity, consistency, and relevance — so focus on writing for both people and algorithms.
+
+	•	“About” Page
+
+This is often the first page viewers will see (homepage). Use it to tell your story and position your value.
+
+	•	Introduction: Create a compelling homepage that hooks visitors. 
+	•	Show your skills & strengths. Think about what your value and competitive advantage is in the marketplace. Who are you? What makes you unique? What value do you bring?
+	•	Provide Professional background & credentials. 
+	•	Display your personality (e.g., hobbies, strengths, pets, a few details, etc.). Try to keep a good balance of professional versus personal.
+
+	•	Contact Information
+
+Make it easy for people to reach you.   
+
+	•	Provide email address. Do not list home address.
+	•	Include a contact form that routes to your email. 
+	•	Included LinkedIn (required) and other social media accounts when relevant. 
+	•	Be sure your LinkedIn profile is up-to-date. Check out this resource for recommendations on how to polish your LinkedIn profile. 
+	•	Additional optional information to include – phone number, city, and state.
+
+	•	Work Samples
+
+Oftentimes, future employers or potential clients in this field want to see what type of work you are capable of doing. Therefore, this section of the portfolio gives you the chance to showcase your work accordingly. 
+
+	•	Select Projects - Choose the best and most relevant work that aligns with your career objective(s). I suggest the following:
+	•	Class projects related to your career objectives.
+	•	Previous work experience. 
+	•	Industry Certifications (2 required for MARK 460)
+	•	Simulation Experiences (required for MARK 460)
+	•	Other information may include a service page (if you offer any type of service), blog, vlog, email campaigns, digital ad campaign, etc.
+	•	Display Assets: For each section, be sure to include an image (e.g., example from the campaign or analytic results), write a description of your role with the project, and give a description of the results. Give concrete numbers as often as possible. Be concise.
+
+Notes about Copyright & Ethics
+Any photos, images, or music used should include proper attribution. If you do not have an attribution, provide a brief explanation of when you (or someone you know) created the content or how you obtained permission to use it. If you are in a photo, you don’t have to explain. 
+Any use of content not created by yourself must be clearly cited and credited. 
+
+Submission Instructions
+Submit the live URL of your digital marketing portfolio to Canvas by the assignment deadline.
+	•	Your site must be publicly accessible — no password or login required.
+	•	Make sure your portfolio meets the Pass/Fail Baseline Checklist below before submission. If it does not, it will be marked “Incomplete” and must be revised before it can receive a grade or before you are allowed to advance to Stage 2 of the Portfolio Project. 
+
+Complete Peer Reviews
+
+After submitting your portfolio, you are required to participate in a peer review process prior to the stated deadline on Canvas. 
+	•	Peer Reviews (2 total): Provide thoughtful, constructive feedback on two classmates’ portfolios using Canvas’ built-in peer review tool. Your feedback should include at least:
+	•	A confirmation on whether they meet the Pass/Fail Baseline Checklist. 
+	•	2–3 actionable suggestions for improvement, based on the checklist or other assignment criteria.
+	•	2–3 positive comments highlighting strengths, strong design choices, or areas where they excelled.
+
+Updates & Reflection
+	•	Once you’ve completed your reviews, write a short reflection summarizing:
+	•	What you learned from reviewing other students’ portfolios
+	•	What changes or improvements you made to your own portfolio based on the feedback you received
+	•	Submit this to the Portfolio Stage 1 Reflection Assignment on Canvas by the stated deadline. 
+
+Final Notes
+	•	Remember: This portfolio is part of your professional toolkit — you should feel confident sharing it with potential employers and clients. Put your very best work forward. 
+	•	Make sure your portfolio meets the Pass/Fail Baseline Checklist below before submission. If it does not, it will be marked “Incomplete” and must be revised before it can receive a grade or before you are allowed to advance to Stage 2 of the Portfolio Project.
+Pass/Fail Baseline Checklist
+Visual Identity
+Yes/No
+Color Palette
+I selected a cohesive color palette based on color psychology and ensured it aligns with my personal brand goals.
+
+Layout & Structure
+My text is formatted thoughtfully using headers, subheadings, bullets, and pull quotes where appropriate.
+
+Fonts, Visuals, & Tone
+My portfolio uses complementary fonts consistently, includes high-quality and properly formatted images or graphics that enhance the design, and features written content with a clear, professional tone and voice that reflects my personal brand.
+
+Web Design & User Experience
+
+Navigation & Accessibility 
+My site’s menus are clear, concise, and logically structured so visitors can easily find key pages, and it meets ADA accessibility guidelines with descriptive alt text, strong color contrast, and clear button labels. 
+
+Responsive Design
+My site displays and functions properly on desktop, tablet, and mobile devices.
+
+SEO & Engagement Strategy
+My site includes at least one clear call to action that encourages user interaction and applies key SEO best practices — including unique, keyword-rich title tags and meta descriptions, descriptive alt text for all images, well-structured H1 and H2 headers, intentional internal linking, and a thoughtful keyword strategy used consistently across titles, headers, copy, and metadata — to ensure the content is clear, valuable, and optimized for both users and search engines. 
+
+Webpages
+
+About Page
+My homepage (“About” page) tells a clear and compelling story about who I am, highlights my skills and strengths, communicates my professional background and credentials, and includes authentic personal elements that show my personality while maintaining a professional tone.
+
+Contact Page
+My portfolio makes it easy for visitors to reach me by including a professional email address and/or contact form, a link to my updated LinkedIn profile (required), and other relevant social media accounts as desired. Optional details such as phone number, city, or state are included if appropriate.
+
+Work Samples
+My portfolio showcases relevant work that aligns with my career goals, including class projects, previous experience, certifications (2 required), simulations (required), or other professional work. Each example includes a visual asset, a clear description of my role, and measurable results or outcomes.
+
+

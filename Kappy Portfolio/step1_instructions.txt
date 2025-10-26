@@ -1,0 +1,52 @@
+Brock Blueprint: Personal Branding with a Purpose 
+MARK 460 - Digital Marketing Portfolio
+(25% of Final Grade)
+This course represents the third stage of The Brock Blueprint: Personal Branding with a Purpose, a multi-year curriculum initiative in the Brock School of Business. The Brock Blueprint is designed to help you build a strong, purpose-driven personal brand across multiple courses, preparing you to communicate your value effectively and cultivate authentic professional relationships grounded in stewardship, service, and integrity.
+In the Digital Marketing Portfolio, you will advance the personal brand foundations developed in earlier courses (Business Communication and Principles of Marketing) by applying them in a real-world digital marketing context. Here, the focus shifts from explaining who you are to showing what you can do. Your digital marketing portfolio will serve as tangible proof of your skills in web design, SEO, analytics, branding, and content strategy while also communicating your professional value to potential employers and clients. 
+The Digital Marketing Portfolio project is structured in three integrated stages, each building on the last:
+	•	Content Creation (Stage 1 – 17%): Develop and design your portfolio website, applying digital marketing principles to communicate your personal brand effectively.
+	•	Publication & Analytics (Stage 2 – 3%): Launch your site and set up analytics tools to track audience behavior and key performance metrics.
+	•	Performance Evaluation (Stage 3 – 5%): Analyze your portfolio’s performance data and use those insights to make evidence-based recommendations for future improvements.
+	•	By the end of this project, you’ll demonstrate your ability to strategically manage a digital presence, measure marketing effectiveness, and translate data into actionable decisions — all essential skills for today’s marketers.
+	•	How do you build a personal brand online?
+	•	Whether or not you’ve ever Googled yourself, you can be sure that potential employers and clients will. That’s why managing your online reputation is a crucial step in shaping how others perceive you.
+	•	Start by opening an incognito browser window and searching your name. Ask yourself:
+	•	What shows up first — and is it professional?
+	•	Are there things you’d rather hide or remove?
+	•	Are there important things missing that should appear more prominently?
+	•	This quick audit gives you a baseline for improving your online presence. Some starting points:
+	•	Clean up your digital footprint—Make personal accounts private or deactivate them. Delete content that doesn’t align with your professional image.
+	•	Leverage SEO to your advantage—Upload professional photos and tag them with your name — Google is likely to prioritize them in search results.
+	•	Set up a Google Alert for your name to monitor new mentions and manage your reputation proactively. To create alerts, go to www.google.com/alerts.
+What is a Digital Marketing Portfolio?
+
+	•	A digital marketing portfolio is your professional showcase — a website that highlights your skills, tells your story, and demonstrates your ability to plan, design, and execute marketing strategies. It’s not just a résumé; it’s a living, evolving representation of your brand and expertise.
+	•	Through your portfolio, you’ll:
+	•	Introduce yourself and share your background.
+	•	Display your best work and key projects.
+	•	Demonstrate your skills in digital content creation, SEO, analytics, design, and more.
+	•	Communicate your personality and professional identity in a way that makes you memorable.
+	•	
+	•	What hosting platform do I use for my Digital Marketing Portfolio? 
+	•	You can choose any web-hosting platform that fits your long-term goals. Adobe Portfolio is the industry standard but requires a subscription. Wix is a highly recommended free option and my personal favorite. Others such as WordPress, Weebly, or Squarespace are also acceptable.
+	•	Requirements:
+	•	Your site must be publicly accessible (no password required).
+	•	It must allow you to connect Google Analytics or use a built-in analytics dashboard.
+	•	Free trials must remain active for the duration of the course.
+	•	Do not use Google Sites.
+	•	Custom domain names are not required but encouraged — they make your site look more polished and professional.
+	•	Set up of my hosting platform for my Digital Marketing Portfolio is complete, now what? 
+	•	Before you begin building your site, take time to plan strategically. Follow these steps:
+	•	Define your objectives. How will this portfolio help you reach your professional goals? Think of 1–2 specific outcomes you want to achieve.
+	•	Seek inspiration. Explore at least 3–5 example portfolios to spark ideas.
+	•	Choose a template. Select one that reflects your personal brand and goals.
+	•	Outline your site structure. Sketch a sitemap showing pages, headings, and navigation flow. Aim for 3–5 pages total — concise, focused sites are most effective.
+	•	Plan your content. Consider which images, writing, design elements, and work examples best communicate your story and skills.
+	•	
+	•	Examples of other Digital Marketing Portfolios:
+	•	Example 1: Allie Blain, 2025 Graduate
+	•	Example 2: Annabelle Anderson, 2025 Graduate
+	•	Example 3: Noah Williams, 2025 Graduate
+	•	Example 4: Skyler Kasselmann, 2025 Graduate
+Please note that these examples only serve as inspiration and may not include all the requirements for this assignment. 
+
