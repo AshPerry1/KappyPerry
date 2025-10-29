@@ -1059,6 +1059,15 @@ a {
     }
 }
 
+@keyframes iconBounceSmall {
+    0%, 100% {
+        transform: scale(1.15) translateY(-3px);
+    }
+    50% {
+        transform: scale(1.15) translateY(-6px);
+    }
+}
+
 .value-icon svg {
     width: 48px;
     height: 48px;
@@ -1122,7 +1131,8 @@ a {
 
 .hobby-item:hover .hobby-icon {
     color: var(--im-text);
-    transform: scale(1.15);
+    transform: scale(1.15) translateY(-3px);
+    animation: iconBounceSmall 0.6s ease;
 }
 
 .hobby-item:hover .hobby-text {
