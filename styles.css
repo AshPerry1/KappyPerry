@@ -2552,34 +2552,41 @@ a {
 /* Site Footer */
 .site-footer {
     margin-top: 4rem;
-    padding: 1.5rem 0;
+    padding: 1.5rem 20px;
     border-top: 1px solid var(--light-gray);
     background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
     color: var(--welcome-text);
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     letter-spacing: 0.5px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
     text-align: center;
+    width: auto;
 }
 
 .copyright {
