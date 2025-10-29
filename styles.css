@@ -1040,16 +1040,13 @@ a {
 }
 
 .value-icon {
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.value-icon {
     margin-bottom: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--im-text);
     height: 48px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .value-icon svg {
