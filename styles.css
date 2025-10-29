@@ -1870,6 +1870,11 @@ a {
     margin-bottom: 2rem;
 }
 
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .contact-form .form-group {
     margin-bottom: 1.5rem;
 }
@@ -1879,24 +1884,39 @@ a {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
+    padding: 14px 16px;
+    border: 2px solid var(--button-border);
     border-radius: 8px;
-    font-family: inherit;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 1rem;
     transition: all 0.3s ease;
+    background: white;
+    color: var(--text-dark);
+    box-sizing: border-box;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(75, 156, 211, 0.1);
+    border-color: var(--im-text);
+    box-shadow: 0 0 0 3px rgba(80, 130, 150, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
 }
 
 .contact-info {

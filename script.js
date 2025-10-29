@@ -391,6 +391,74 @@ function closeWelcomeModal() {
     }
 }
 
+// ============================================
+// CONTACT FORM (Opens Email Client)
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Create email subject
+            const emailSubject = subject ? `Contact from ${name}: ${subject}` : `Contact from ${name}`;
+            
+            // Create email body
+            const emailBody = `Hello Kappy,
+
+${message}
+
+---
+From: ${name}
+Email: ${email}
+`;
+            
+            // Encode for mailto link
+            const encodedSubject = encodeURIComponent(emailSubject);
+            const encodedBody = encodeURIComponent(emailBody);
+            
+            // Create mailto link
+            const mailtoLink = `mailto:kappabug@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+            
+            // Track form submission
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('Contact', 'form_submit', 'Contact Form Submitted');
+            }
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'form-success-message';
+            successMessage.style.cssText = 'margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); color: #059669; border-radius: 8px; text-align: center; font-family: Montserrat, sans-serif;';
+            successMessage.textContent = 'Opening your email client... Please send the email to complete your message.';
+            
+            // Remove any existing success message
+            const existingMessage = contactForm.querySelector('.form-success-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            contactForm.appendChild(successMessage);
+            
+            // Remove message after 8 seconds
+            setTimeout(() => {
+                if (successMessage.parentNode) {
+                    successMessage.remove();
+                }
+            }, 8000);
+        });
+    }
+});
+
 // Initialize welcome letter modal on page load
 document.addEventListener('DOMContentLoaded', function() {
     showWelcomeModal();
