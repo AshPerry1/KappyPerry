@@ -59,7 +59,9 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--neutral-white);
+    background: linear-gradient(135deg, var(--bg-gradient-top) 0%, var(--bg-gradient-bottom) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -265,10 +267,14 @@ a {
     isolation: isolate;
     background: linear-gradient(135deg, var(--bg-gradient-top) 0%, var(--bg-gradient-bottom) 100%);
     color: var(--text-dark);
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
 }
 
 .hero__inner {
     max-width: 1180px;
+    width: 100%;
     margin: 0 auto;
     padding: 80px 24px;
     display: grid;
