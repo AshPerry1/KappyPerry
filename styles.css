@@ -2562,6 +2562,10 @@ a {
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .footer-text {
@@ -2569,11 +2573,13 @@ a {
     font-size: 0.75rem;
     color: var(--welcome-text);
     margin: 0;
+    padding: 0;
     letter-spacing: 0.5px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
+    text-align: center;
 }
 
 .copyright {
@@ -2593,6 +2599,7 @@ a {
     transition: opacity 0.2s ease, transform 0.2s ease;
     vertical-align: middle;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .footer-smiley-icon:hover {
