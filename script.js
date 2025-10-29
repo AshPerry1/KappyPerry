@@ -416,14 +416,14 @@ document.addEventListener('DOMContentLoaded', function() {
         closeEnvelopeBtn.addEventListener('click', closeWelcomeModal);
     }
     
-    // Close on overlay click (only when envelope is showing)
+    // Close on overlay click (works for both envelope and letter)
     const modal = document.getElementById('welcomeModal');
     if (modal) {
         const overlay = modal.querySelector('.welcome-modal-overlay');
         if (overlay) {
-            overlay.addEventListener('click', function() {
-                const envelope = document.getElementById('letterEnvelope');
-                if (envelope && envelope.style.display !== 'none') {
+            overlay.addEventListener('click', function(e) {
+                // Only close if clicking directly on overlay, not on modal content
+                if (e.target === overlay) {
                     closeWelcomeModal();
                 }
             });
@@ -436,5 +436,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Make sure close button works even if letter is dynamically shown
+    // Re-query after letter opens to ensure it's attached
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'closeWelcome') {
+            closeWelcomeModal();
+        }
+    });
 });
 

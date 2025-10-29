@@ -2285,12 +2285,20 @@ a {
     justify-content: center;
     border-radius: 50%;
     transition: all 0.2s ease;
+    z-index: 10002;
 }
 
 .welcome-modal-close:hover {
     background: var(--light-gray);
     color: var(--im-text);
     transform: rotate(90deg);
+}
+
+.letter-content .welcome-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10003;
 }
 
 .welcome-content {
