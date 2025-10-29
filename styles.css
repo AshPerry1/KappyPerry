@@ -2062,7 +2062,7 @@ a {
     opacity: 1;
 }
 
-/* Welcome Modal */
+/* Welcome Letter Modal */
 .welcome-modal {
     display: none;
     position: fixed;
@@ -2086,34 +2086,174 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
 }
 
 .welcome-modal-content {
     position: relative;
-    background: var(--neutral-white);
-    border-radius: 20px;
-    max-width: 600px;
+    max-width: 500px;
     width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
     margin: auto;
-    padding: 2.5rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: modalSlideIn 0.4s ease-out;
     z-index: 10001;
+    perspective: 1000px;
 }
 
-@keyframes modalSlideIn {
-    from {
-        transform: translateY(-50px);
+/* Envelope State */
+.letter-envelope {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    animation: envelopeDropIn 0.6s ease-out;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.letter-envelope:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes envelopeDropIn {
+    0% {
+        transform: translateY(-100px) scale(0.8);
         opacity: 0;
     }
-    to {
-        transform: translateY(0);
+    60% {
+        transform: translateY(10px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
+}
+
+.envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.envelope-icon {
+    width: 120px;
+    height: 100px;
+    animation: envelopeFloat 2s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.envelope-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--im-text);
+    margin: 0;
+    text-align: center;
+}
+
+.open-letter-btn {
+    background: var(--im-text);
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(80, 130, 150, 0.3);
+}
+
+.open-letter-btn:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(80, 130, 150, 0.4);
+}
+
+.open-letter-btn:active {
+    transform: translateY(0);
+}
+
+/* Letter Content State */
+.letter-content {
+    display: none;
+}
+
+.letter-content.open {
+    display: block;
+    animation: letterOpen 0.6s ease-out;
+}
+
+@keyframes letterOpen {
+    0% {
+        transform: rotateY(-90deg) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: rotateY(-45deg) scale(0.9);
+    }
+    100% {
+        transform: rotateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.letter-paper {
+    background: var(--neutral-white);
+    border-radius: 8px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #e8e8e8 20%, transparent 20%, transparent 40%, #e8e8e8 40%, transparent 40%, transparent 60%, #e8e8e8 60%, transparent 60%, transparent 80%, #e8e8e8 80%, transparent 80%);
+    opacity: 0.3;
+}
+
+.letter-header {
+    text-align: right;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.letter-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: var(--welcome-text);
+    margin: 0;
+}
+
+.letter-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.greeting {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--im-text);
+    margin: 0;
 }
 
 .welcome-modal-close {
@@ -2148,6 +2288,17 @@ a {
     gap: 1.5rem;
     align-items: center;
     text-align: center;
+}
+
+/* Letter-specific styles */
+.letter-body .welcome-image {
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.letter-body .welcome-message {
+    text-align: left;
+    margin-bottom: 1.25rem;
 }
 
 .welcome-image {
@@ -2208,15 +2359,36 @@ a {
     letter-spacing: 0.5px;
 }
 
-/* Mobile styles for welcome modal */
+/* Mobile styles for welcome letter modal */
 @media (max-width: 768px) {
     .welcome-modal-content {
-        padding: 2rem 1.5rem;
         width: 95%;
+        max-width: 450px;
     }
     
-    .welcome-content {
-        gap: 1.25rem;
+    .letter-envelope {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .envelope-icon {
+        width: 100px;
+        height: 85px;
+    }
+    
+    .envelope-label {
+        font-size: 1.1rem;
+    }
+    
+    .letter-paper {
+        padding: 2rem 1.5rem;
+    }
+    
+    .letter-paper::before {
+        left: 40px;
+    }
+    
+    .greeting {
+        font-size: 1.5rem;
     }
     
     .welcome-image {
@@ -2224,13 +2396,8 @@ a {
         height: 120px;
     }
     
-    .welcome-text h2 {
-        font-size: 1.75rem;
-    }
-    
     .welcome-message {
         font-size: 1rem;
-        text-align: left;
     }
     
     .signature-name {
@@ -2239,17 +2406,39 @@ a {
 }
 
 @media (max-width: 480px) {
-    .welcome-modal-content {
+    .letter-envelope {
+        padding: 2rem 1.25rem;
+    }
+    
+    .envelope-icon {
+        width: 80px;
+        height: 70px;
+    }
+    
+    .envelope-label {
+        font-size: 1rem;
+    }
+    
+    .open-letter-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .letter-paper {
         padding: 1.5rem 1rem;
+    }
+    
+    .letter-paper::before {
+        left: 30px;
+    }
+    
+    .greeting {
+        font-size: 1.3rem;
     }
     
     .welcome-image {
         width: 100px;
         height: 100px;
-    }
-    
-    .welcome-text h2 {
-        font-size: 1.5rem;
     }
     
     .welcome-message {

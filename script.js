@@ -296,11 +296,13 @@ window.addEventListener('beforeunload', function() {
 });
 
 // ============================================
-// WELCOME MODAL (First Visit Popup)
+// WELCOME LETTER MODAL (First Visit Popup)
 // ============================================
 
 function showWelcomeModal() {
     const modal = document.getElementById('welcomeModal');
+    const envelope = document.getElementById('letterEnvelope');
+    const letterContent = document.getElementById('letterContent');
     const hasSeenWelcome = localStorage.getItem('kappyWelcomeSeen');
     
     // Only show on homepage and if not seen before
@@ -311,11 +313,49 @@ function showWelcomeModal() {
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
             
+            // Ensure envelope is visible and letter is hidden
+            if (envelope) {
+                envelope.style.display = 'block';
+            }
+            if (letterContent) {
+                letterContent.style.display = 'none';
+                letterContent.classList.remove('open');
+            }
+            
+            // Set current date
+            const dateElement = document.getElementById('letterDate');
+            if (dateElement) {
+                const today = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                dateElement.textContent = today.toLocaleDateString('en-US', options);
+            }
+            
             // Track welcome modal view
             if (typeof trackEvent !== 'undefined') {
-                trackEvent('Welcome', 'modal_view', 'First Visit Welcome');
+                trackEvent('Welcome', 'letter_envelope_view', 'First Visit Envelope');
             }
         }, 500);
+    }
+}
+
+function openLetter() {
+    const envelope = document.getElementById('letterEnvelope');
+    const letterContent = document.getElementById('letterContent');
+    
+    if (envelope && letterContent) {
+        // Animate envelope closing
+        envelope.style.animation = 'letterClose 0.4s ease-out forwards';
+        
+        setTimeout(() => {
+            envelope.style.display = 'none';
+            letterContent.style.display = 'block';
+            letterContent.classList.add('open');
+            
+            // Track letter opened
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('Welcome', 'letter_opened', 'Letter Opened');
+            }
+        }, 200);
     }
 }
 
@@ -326,34 +366,67 @@ function closeWelcomeModal() {
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = ''; // Restore scrolling
         
+        // Reset states
+        const envelope = document.getElementById('letterEnvelope');
+        const letterContent = document.getElementById('letterContent');
+        
+        if (envelope) {
+            envelope.style.display = 'block';
+            envelope.style.animation = '';
+        }
+        if (letterContent) {
+            letterContent.style.display = 'none';
+            letterContent.classList.remove('open');
+        }
+        
         // Mark as seen (only on homepage)
-        if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+        if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
             localStorage.setItem('kappyWelcomeSeen', 'true');
             
             // Track welcome modal close
             if (typeof trackEvent !== 'undefined') {
-                trackEvent('Welcome', 'modal_close', 'Welcome Dismissed');
+                trackEvent('Welcome', 'letter_closed', 'Letter Dismissed');
             }
         }
     }
 }
 
-// Initialize welcome modal on page load
+// Initialize welcome letter modal on page load
 document.addEventListener('DOMContentLoaded', function() {
     showWelcomeModal();
     
-    // Close button
+    // Open letter button
+    const openBtn = document.getElementById('openLetter');
+    if (openBtn) {
+        openBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openLetter();
+        });
+    }
+    
+    // Close buttons
     const closeBtn = document.getElementById('closeWelcome');
+    const closeEnvelopeBtn = document.getElementById('closeWelcomeEnvelope');
+    
     if (closeBtn) {
         closeBtn.addEventListener('click', closeWelcomeModal);
     }
     
-    // Close on overlay click
+    if (closeEnvelopeBtn) {
+        closeEnvelopeBtn.addEventListener('click', closeWelcomeModal);
+    }
+    
+    // Close on overlay click (only when envelope is showing)
     const modal = document.getElementById('welcomeModal');
     if (modal) {
         const overlay = modal.querySelector('.welcome-modal-overlay');
         if (overlay) {
-            overlay.addEventListener('click', closeWelcomeModal);
+            overlay.addEventListener('click', function() {
+                const envelope = document.getElementById('letterEnvelope');
+                if (envelope && envelope.style.display !== 'none') {
+                    closeWelcomeModal();
+                }
+            });
         }
         
         // Close on Escape key

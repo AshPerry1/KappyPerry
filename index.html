@@ -41,26 +41,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Welcome Popup Modal -->
+    <!-- Welcome Letter Modal -->
     <div id="welcomeModal" class="welcome-modal" role="dialog" aria-labelledby="welcomeTitle" aria-hidden="true">
         <div class="welcome-modal-overlay"></div>
         <div class="welcome-modal-content">
-            <button class="welcome-modal-close" aria-label="Close welcome message" id="closeWelcome">&times;</button>
-            <div class="welcome-content">
-                <div class="welcome-image">
-                    <img src="Kappyheadshot1.JPEG" alt="Kappy Perry">
+            <!-- Closed Letter/Envelope State -->
+            <div class="letter-envelope" id="letterEnvelope">
+                <button class="welcome-modal-close" aria-label="Close letter" id="closeWelcomeEnvelope">&times;</button>
+                <div class="envelope-container">
+                    <svg class="envelope-icon" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 20 L50 50 L90 20 L90 70 L10 70 Z" fill="rgba(255,255,255,0.95)" stroke="#508296" stroke-width="2"/>
+                        <path d="M10 20 L50 45 L90 20" fill="none" stroke="#508296" stroke-width="2"/>
+                    </svg>
+                    <p class="envelope-label">A letter from Kappy</p>
+                    <button class="open-letter-btn" id="openLetter">Open Letter</button>
                 </div>
-                <div class="welcome-text">
-                    <h2 id="welcomeTitle">Welcome!</h2>
-                    <p class="welcome-message">
-                        Hi there! I'm so glad you're here. Thanks for taking the time to explore my portfolio and learn a little bit about who I am, what I do, and what I'm passionate about. Whether you're a potential employer, a fellow marketer, or just curious, I hope you find something that inspires or connects with you.
-                    </p>
-                    <p class="welcome-message">
-                        Feel free to explore my work, read my story, and don't hesitate to reach out if you'd like to connect. I'd love to hear from you!
-                    </p>
-                    <div class="welcome-signature">
-                        <p class="signature-text">xoxo,</p>
-                        <p class="signature-name">Kappy</p>
+            </div>
+            
+            <!-- Opened Letter State -->
+            <div class="letter-content" id="letterContent" style="display: none;">
+                <button class="welcome-modal-close" aria-label="Close welcome message" id="closeWelcome">&times;</button>
+                <div class="letter-paper">
+                    <div class="letter-header">
+                        <p class="letter-date" id="letterDate"></p>
+                    </div>
+                    <div class="letter-body">
+                        <div class="welcome-image">
+                            <img src="Kappyheadshot1.JPEG" alt="Kappy Perry">
+                        </div>
+                        <p class="greeting">Welcome!</p>
+                        <p class="welcome-message">
+                            Hi there! I'm so glad you're here. Thanks for taking the time to explore my portfolio and learn a little bit about who I am, what I do, and what I'm passionate about. Whether you're a potential employer, a fellow marketer, or just curious, I hope you find something that inspires or connects with you.
+                        </p>
+                        <p class="welcome-message">
+                            Feel free to explore my work, read my story, and don't hesitate to reach out if you'd like to connect. I'd love to hear from you!
+                        </p>
+                        <div class="welcome-signature">
+                            <p class="signature-text">Best regards,</p>
+                            <p class="signature-name">Kappy Perry</p>
+                        </div>
                     </div>
                 </div>
             </div>
