@@ -2007,6 +2007,61 @@ a {
     font-weight: 600;
 }
 
+/* Career Impact Section */
+.career-impact {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, rgba(80, 130, 150, 0.05) 0%, rgba(190, 225, 240, 0.1) 100%);
+    border-left: 3px solid var(--im-text);
+    border-radius: 8px;
+}
+
+.career-impact-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--im-text);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.career-impact-header svg {
+    color: var(--im-text);
+}
+
+.transferable-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.transferable-skill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.transferable-skill:hover {
+    transform: translateX(4px);
+    color: var(--im-text);
+}
+
+.transferable-skill svg {
+    flex-shrink: 0;
+    color: var(--im-text);
+    opacity: 0.8;
+}
+
+.transferable-skill:hover svg {
+    opacity: 1;
+}
+
 /* CTA Section */
 .cta-section {
     padding: 60px 0;
