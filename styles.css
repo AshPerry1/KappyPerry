@@ -613,14 +613,28 @@ a {
 }
 
 @media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+        padding: 60px 0;
+    }
+    
     .hero__inner {
         grid-template-columns: 1fr;
         gap: 32px;
-        padding: 72px 20px;
+        padding: 60px 20px 40px;
     }
+    
     .hero__photo {
         max-width: 520px;
         margin: 0 auto;
+    }
+    
+    .hero__title {
+        font-size: clamp(32px, 8vw, 48px);
+    }
+    
+    .hero__subtitle {
+        font-size: clamp(15px, 2vw, 18px);
     }
 }
 
@@ -1386,6 +1400,45 @@ a {
     .section-title-wrapper h2,
     .personal-content h2 {
         font-size: 2rem;
+    }
+    
+    .work-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .work-image {
+        margin-bottom: 1.5rem;
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-header-about {
+        padding: 60px 0 40px;
+    }
+    
+    .page-header-about h1 {
+        font-size: 2rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title-wrapper h2 {
+        font-size: 1.75rem;
+    }
+    
+    .section-descriptor {
+        font-size: 0.95rem;
     }
 }
 
