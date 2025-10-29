@@ -134,21 +134,33 @@ if (hamburger) {
     });
 }
 
-// Track CTA buttons (Download Resume, Contact Me, etc.)
-document.querySelectorAll('.btn--primary, .btn--ghost').forEach(button => {
-    button.addEventListener('click', function() {
-        const buttonText = this.textContent.trim().replace(/\s+/g, ' ');
+// Track all buttons (including btn--primary, btn--ghost, and generic .btn)
+document.querySelectorAll('.btn--primary, .btn--ghost, button.btn, a.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Don't track if it's a form submit button (handled separately)
+        if (this.type === 'submit') {
+            return;
+        }
+        
+        const buttonText = this.textContent.trim().replace(/\s+/g, ' ') || 'Button';
         const href = this.getAttribute('href') || 'no-href';
-        trackEvent('CTA', 'button_click', buttonText, 1);
+        const dataHover = this.getAttribute('data-hover') || '';
+        
+        trackEvent('CTA', 'button_click', `${buttonText}${href !== 'no-href' ? ' (' + href + ')' : ''}`, 1);
         
         // Track download events separately
         if (href.includes('.pdf') || this.hasAttribute('download')) {
-            trackEvent('Download', 'resume_download', buttonText);
+            trackEvent('Download', 'file_download', buttonText);
+        }
+        
+        // Track hover text if available
+        if (dataHover) {
+            trackEvent('CTA', 'button_hover_text', dataHover);
         }
     });
 });
 
-// Track homepage navigation buttons
+// Track homepage navigation buttons (also tracked above, but with specific homepage category)
 document.querySelectorAll('.menu-stack .btn').forEach(button => {
     button.addEventListener('click', function() {
         const buttonText = this.textContent.trim();
@@ -157,6 +169,14 @@ document.querySelectorAll('.menu-stack .btn').forEach(button => {
         trackEvent('Homepage', 'hero_button_click', `${buttonText} (${href})`);
         if (hoverText) {
             trackEvent('Homepage', 'hero_button_hover_shown', hoverText);
+        }
+    });
+    
+    // Track hover events for homepage buttons
+    button.addEventListener('mouseenter', function() {
+        const hoverText = this.getAttribute('data-hover') || '';
+        if (hoverText) {
+            trackEvent('Homepage', 'hero_button_hover', hoverText);
         }
     });
 });
@@ -213,13 +233,26 @@ document.querySelectorAll('section[id], .about-section, .work-grid').forEach(sec
     sectionObserver.observe(section);
 });
 
-// Track internal link clicks
+// Track internal link clicks (anchor links and portfolio links)
 document.querySelectorAll('a[href^="#"], .portfolio-link, .intro-link-text').forEach(link => {
     link.addEventListener('click', function() {
-        const linkText = this.textContent.trim();
+        const linkText = this.textContent.trim() || 'Internal Link';
         const href = this.getAttribute('href');
         trackEvent('Navigation', 'internal_link_click', `${linkText} (${href})`);
     });
+});
+
+// Track portfolio page links (links between pages)
+document.querySelectorAll('a[href$=".html"], a[href^="about"], a[href^="mystory"], a[href^="contact"], a[href^="index"]').forEach(link => {
+    // Skip external links already tracked
+    if (!link.href.startsWith('http') || link.hostname === window.location.hostname) {
+        link.addEventListener('click', function() {
+            const linkText = this.textContent.trim() || 'Page Link';
+            const href = this.getAttribute('href');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            trackEvent('Navigation', 'page_link_click', `From ${currentPage} to ${linkText} (${href})`);
+        });
+    }
 });
 
 // Track external link clicks
@@ -227,8 +260,22 @@ document.querySelectorAll('a[href^="http"]').forEach(link => {
     link.addEventListener('click', function() {
         const linkText = this.textContent.trim() || 'External Link';
         const href = this.getAttribute('href');
-        const domain = new URL(href).hostname;
-        trackEvent('External', 'link_click', `${linkText} (${domain})`);
+        try {
+            const domain = new URL(href).hostname;
+            trackEvent('External', 'link_click', `${linkText} (${domain})`);
+        } catch (e) {
+            trackEvent('External', 'link_click', `${linkText} (${href})`);
+        }
+    });
+});
+
+// Track mailto and tel links
+document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', function() {
+        const linkText = this.textContent.trim() || 'Contact Link';
+        const href = this.getAttribute('href');
+        const type = href.startsWith('mailto:') ? 'Email' : 'Phone';
+        trackEvent('Contact', `${type.toLowerCase()}_click`, `${linkText} (${href})`);
     });
 });
 
@@ -243,18 +290,33 @@ document.querySelectorAll('.career-impact, .transferable-skill').forEach(element
 });
 
 // Track form submissions (contact page)
-const contactForm = document.querySelector('form');
+const contactForm = document.querySelector('#contactForm, form');
 if (contactForm) {
+    // Track form field interactions
+    const fields = contactForm.querySelectorAll('input, textarea, select');
+    fields.forEach(field => {
+        field.addEventListener('focus', function() {
+            trackEvent('Contact', 'form_field_focus', this.name || this.id || this.type);
+        });
+        
+        field.addEventListener('blur', function() {
+            if (this.value.trim().length > 0) {
+                trackEvent('Contact', 'form_field_completed', this.name || this.id || this.type);
+            }
+        });
+    });
+    
+    // Track form submit button click
+    const submitButton = contactForm.querySelector('button[type="submit"], input[type="submit"]');
+    if (submitButton) {
+        submitButton.addEventListener('click', function() {
+            trackEvent('Contact', 'submit_button_click', 'Contact Form Submit Button');
+        });
+    }
+    
+    // Track form submission (already in contact form handler, but adding here for redundancy)
     contactForm.addEventListener('submit', function(e) {
         trackEvent('Contact', 'form_submit', 'Contact Form Submitted');
-        
-        // Track form field interactions
-        const fields = this.querySelectorAll('input, textarea, select');
-        fields.forEach(field => {
-            field.addEventListener('focus', function() {
-                trackEvent('Contact', 'form_field_focus', this.name || this.type);
-            });
-        });
     });
 }
 
