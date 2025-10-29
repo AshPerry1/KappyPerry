@@ -714,7 +714,7 @@ document.addEventListener('click', function(e) {
 
 // Track PDF view attempts
 document.querySelectorAll('a[href$=".pdf"], a[download*=".pdf"]').forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
         // Check if opening in new tab
         if (this.target === '_blank' || e.ctrlKey || e.metaKey) {
             trackEvent('Download', 'pdf_new_tab', this.getAttribute('href') || this.getAttribute('download'));
