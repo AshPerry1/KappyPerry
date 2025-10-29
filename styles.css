@@ -2197,14 +2197,15 @@ a {
     font-size: 0.95rem;
     font-style: italic;
     margin-bottom: 0.25rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .signature-name {
     color: var(--im-text);
     font-size: 1.5rem;
     font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
-    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 /* Mobile styles for welcome modal */
