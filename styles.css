@@ -2572,9 +2572,9 @@ a {
 /* Site Footer */
 .site-footer {
     margin-top: 4rem;
-    padding: 1.5rem 20px;
-    border-top: 1px solid var(--light-gray);
-    background: rgba(255, 255, 255, 0.5);
+    padding: 0.75rem 20px;
+    border-top: none;
+    background: #10B981;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2583,8 +2583,8 @@ a {
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     padding: 0;
     text-align: center;
     display: flex;
@@ -2596,9 +2596,9 @@ a {
 
 .footer-text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    color: var(--welcome-text);
-    margin: 0 auto;
+    font-size: 0.7rem;
+    color: #FFFFFF;
+    margin: 0;
     padding: 0;
     letter-spacing: 0.5px;
     display: flex;
@@ -2606,23 +2606,23 @@ a {
     justify-content: center;
     gap: 0.35rem;
     text-align: center;
-    width: auto;
+    width: 100%;
 }
 
 .copyright {
-    color: var(--im-text);
-    font-size: 0.8rem;
+    color: #FFFFFF;
+    font-size: 0.7rem;
 }
 
 .footer-name {
-    color: var(--im-text);
+    color: #FFFFFF;
     font-weight: 600;
 }
 
 .footer-smiley-icon {
-    color: var(--im-text);
+    color: #FFFFFF;
     margin-left: 0.25rem;
-    opacity: 0.75;
+    opacity: 0.9;
     transition: opacity 0.2s ease, transform 0.2s ease;
     vertical-align: middle;
     display: inline-block;
@@ -2636,17 +2636,26 @@ a {
 
 @media (max-width: 768px) {
     .site-footer {
-        padding: 1rem 0;
+        padding: 0.65rem 15px;
     }
     
     .footer-text {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 }
 
 @media (max-width: 480px) {
+    .site-footer {
+        padding: 0.6rem 10px;
+    }
+    
     .footer-text {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
+    }
+    
+    .copyright,
+    .footer-name {
+        font-size: 0.6rem;
     }
 }
 
