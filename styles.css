@@ -2091,6 +2091,104 @@ a {
     grid-template-columns: 1fr;
 }
 
+/* Responsive styles for work cards */
+@media (max-width: 768px) {
+    .work-card {
+        grid-template-columns: 1fr !important;
+        padding: 1.5rem;
+    }
+    
+    .work-image {
+        margin-bottom: 1rem;
+        order: -1;
+    }
+    
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .contact-form {
+        max-width: 100%;
+    }
+    
+    .menu-stack .btn {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+    
+    .hero__social {
+        margin-top: 24px;
+    }
+    
+    .hero__subtitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero__inner {
+        padding: 40px 15px 30px;
+        gap: 24px;
+    }
+    
+    .hero__title {
+        font-size: clamp(28px, 10vw, 36px);
+        margin: 0.15rem 0 0.75rem;
+    }
+    
+    .hero__eyebrow {
+        font-size: 0.8rem;
+    }
+    
+    .hero__subtitle {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .menu-stack {
+        gap: 10px;
+    }
+    
+    .menu-stack .btn {
+        height: 48px;
+        font-size: 0.85rem;
+    }
+    
+    .icon-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .icon-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .work-card {
+        padding: 1.25rem;
+    }
+    
+    .contact-form-wrapper {
+        padding: 1.25rem;
+        margin-top: 2rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+    
+    .form-actions button {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 .work-image {
     width: 100%;
 }
