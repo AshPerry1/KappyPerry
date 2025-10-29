@@ -2062,6 +2062,200 @@ a {
     opacity: 1;
 }
 
+/* Welcome Modal */
+.welcome-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.welcome-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.welcome-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.welcome-modal-content {
+    position: relative;
+    background: var(--neutral-white);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: auto;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.4s ease-out;
+    z-index: 10001;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.welcome-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.welcome-modal-close:hover {
+    background: var(--light-gray);
+    color: var(--im-text);
+    transform: rotate(90deg);
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--im-text);
+    box-shadow: 0 8px 20px rgba(80, 130, 150, 0.2);
+    flex-shrink: 0;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-text {
+    width: 100%;
+}
+
+.welcome-text h2 {
+    color: var(--im-text);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.welcome-message {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.welcome-signature {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--light-gray);
+    text-align: right;
+}
+
+.signature-text {
+    color: var(--welcome-text);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.signature-name {
+    color: var(--im-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Mobile styles for welcome modal */
+@media (max-width: 768px) {
+    .welcome-modal-content {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+    
+    .welcome-content {
+        gap: 1.25rem;
+    }
+    
+    .welcome-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .welcome-text h2 {
+        font-size: 1.75rem;
+    }
+    
+    .welcome-message {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .signature-name {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-modal-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .welcome-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .welcome-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-message {
+        font-size: 0.95rem;
+    }
+}
+
 /* CTA Section */
 .cta-section {
     padding: 60px 0;

@@ -295,3 +295,73 @@ window.addEventListener('beforeunload', function() {
     trackEvent('Engagement', 'page_exit', document.title, timeOnPage);
 });
 
+// ============================================
+// WELCOME MODAL (First Visit Popup)
+// ============================================
+
+function showWelcomeModal() {
+    const modal = document.getElementById('welcomeModal');
+    const hasSeenWelcome = localStorage.getItem('kappyWelcomeSeen');
+    
+    // Only show on homepage and if not seen before
+    if (modal && !hasSeenWelcome && (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/'))) {
+        // Small delay to ensure page is loaded
+        setTimeout(() => {
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Track welcome modal view
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('Welcome', 'modal_view', 'First Visit Welcome');
+            }
+        }, 500);
+    }
+}
+
+function closeWelcomeModal() {
+    const modal = document.getElementById('welcomeModal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Mark as seen (only on homepage)
+        if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+            localStorage.setItem('kappyWelcomeSeen', 'true');
+            
+            // Track welcome modal close
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('Welcome', 'modal_close', 'Welcome Dismissed');
+            }
+        }
+    }
+}
+
+// Initialize welcome modal on page load
+document.addEventListener('DOMContentLoaded', function() {
+    showWelcomeModal();
+    
+    // Close button
+    const closeBtn = document.getElementById('closeWelcome');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeWelcomeModal);
+    }
+    
+    // Close on overlay click
+    const modal = document.getElementById('welcomeModal');
+    if (modal) {
+        const overlay = modal.querySelector('.welcome-modal-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', closeWelcomeModal);
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeWelcomeModal();
+            }
+        });
+    }
+});
+
