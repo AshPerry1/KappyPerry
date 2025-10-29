@@ -1023,12 +1023,24 @@ a {
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .value-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 30px rgba(80, 130, 150, 0.2);
+    background: linear-gradient(135deg, rgba(220, 238, 247, 0.4) 0%, rgba(190, 225, 240, 0.3) 100%);
+    border-color: rgba(80, 130, 150, 0.25);
+}
+
+.value-item:hover .value-icon {
+    color: var(--im-text);
+    transform: scale(1.1);
+}
+
+.value-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .value-icon {
@@ -1086,16 +1098,29 @@ a {
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    border: 2px solid transparent;
 }
 
 .hobby-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(80, 130, 150, 0.18);
+    background: linear-gradient(135deg, rgba(220, 238, 247, 0.35) 0%, rgba(190, 225, 240, 0.25) 100%);
+    border-color: rgba(80, 130, 150, 0.2);
+}
+
+.hobby-item:hover .hobby-icon {
+    color: var(--im-text);
+    transform: scale(1.15);
+}
+
+.hobby-item:hover .hobby-text {
+    color: var(--im-text);
+    font-weight: 600;
 }
 
 .hobby-icon {
@@ -1104,6 +1129,7 @@ a {
     align-items: center;
     color: var(--im-text);
     height: 32px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .hobby-icon svg {
@@ -1116,6 +1142,7 @@ a {
     font-size: 0.9rem;
     color: var(--text-dark);
     font-weight: 500;
+    transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
 /* Fun Facts Section */
@@ -1150,12 +1177,17 @@ a {
     text-align: center;
     color: var(--text-dark);
     font-weight: 500;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease, color 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .fun-facts-list-simple li:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(80, 130, 150, 0.18);
+    background: linear-gradient(135deg, rgba(220, 238, 247, 0.35) 0%, rgba(190, 225, 240, 0.25) 100%);
+    border-color: rgba(80, 130, 150, 0.2);
+    color: var(--im-text);
+    font-weight: 600;
 }
 
 .about-image-placeholder {
