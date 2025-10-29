@@ -2030,6 +2030,11 @@ a {
 
 .career-impact-header svg {
     color: var(--im-text);
+    transition: color 0.3s ease;
+}
+
+.career-impact-header:hover svg {
+    color: #FFB800; /* Yellow for stars */
 }
 
 .transferable-skills {
@@ -2056,10 +2061,60 @@ a {
     flex-shrink: 0;
     color: var(--im-text);
     opacity: 0.8;
+    transition: color 0.3s ease;
 }
 
 .transferable-skill:hover svg {
     opacity: 1;
+}
+
+/* Icon-specific hover colors */
+.transferable-skill[data-icon="star"]:hover svg {
+    color: #FFB800; /* Yellow for stars */
+}
+
+.transferable-skill[data-icon="people"]:hover svg {
+    color: #6366F1; /* Indigo for people/users */
+}
+
+.transferable-skill[data-icon="message"]:hover svg {
+    color: #3B82F6; /* Blue for communication */
+}
+
+.transferable-skill[data-icon="phone"]:hover svg {
+    color: #10B981; /* Green for phone/sales */
+}
+
+.transferable-skill[data-icon="sun"]:hover svg {
+    color: #F59E0B; /* Amber for strategic/bright ideas */
+}
+
+.transferable-skill[data-icon="box"]:hover svg {
+    color: #6366F1; /* Indigo for operations/management */
+}
+
+.transferable-skill[data-icon="chart"]:hover svg {
+    color: #8B5CF6; /* Purple for analytics/charts */
+}
+
+.transferable-skill[data-icon="clock"]:hover svg {
+    color: #06B6D4; /* Cyan for time */
+}
+
+.transferable-skill[data-icon="shield"]:hover svg {
+    color: #14B8A6; /* Teal for trust/reliability */
+}
+
+.transferable-skill[data-icon="home"]:hover svg {
+    color: #F97316; /* Orange for business/home */
+}
+
+.transferable-skill[data-icon="lightbulb"]:hover svg {
+    color: #EAB308; /* Yellow for creativity/ideas */
+}
+
+.transferable-skill[data-icon="building"]:hover svg {
+    color: #6B7280; /* Gray for organizations */
 }
 
 /* Welcome Letter Modal */
