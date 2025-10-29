@@ -14,7 +14,22 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-STYV69BWVV', {
-        anonymize_ip: true
+        anonymize_ip: true,
+        page_title: document.title,
+        page_location: window.location.href,
+        send_page_view: true
+      });
+      
+      // Track page load time
+      window.addEventListener('load', function() {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'page_load_time', {
+            event_category: 'Performance',
+            event_label: document.title,
+            value: Math.round(loadTime)
+          });
+        }
       });
     </script>
     

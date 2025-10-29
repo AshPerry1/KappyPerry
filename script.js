@@ -76,3 +76,222 @@ if (hamburger) {
     });
 }
 
+// ============================================
+// GOOGLE ANALYTICS EVENT TRACKING
+// ============================================
+
+// Helper function to track events
+function trackEvent(category, action, label, value) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            event_category: category,
+            event_label: label,
+            value: value || 0
+        });
+    }
+}
+
+// Track page views with page title
+function trackPageView(pageName) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+            page_title: pageName,
+            page_location: window.location.href
+        });
+    }
+}
+
+// Track current page on load
+document.addEventListener('DOMContentLoaded', function() {
+    const pageName = document.title || window.location.pathname;
+    trackPageView(pageName);
+    
+    // Track scroll depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+            maxScroll = scrollPercent;
+            trackEvent('Engagement', 'scroll_depth', `${scrollPercent}%`, scrollPercent);
+        }
+    });
+});
+
+// Track navigation menu clicks
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        const pageName = this.textContent.trim();
+        const href = this.getAttribute('href');
+        trackEvent('Navigation', 'nav_click', `${pageName} (${href})`);
+    });
+});
+
+// Track hamburger menu toggle
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+        const isOpen = navMenu.classList.contains('active');
+        trackEvent('Navigation', 'mobile_menu_toggle', isOpen ? 'Menu Opened' : 'Menu Closed');
+    });
+}
+
+// Track CTA buttons (Download Resume, Contact Me, etc.)
+document.querySelectorAll('.btn--primary, .btn--ghost').forEach(button => {
+    button.addEventListener('click', function() {
+        const buttonText = this.textContent.trim().replace(/\s+/g, ' ');
+        const href = this.getAttribute('href') || 'no-href';
+        trackEvent('CTA', 'button_click', buttonText, 1);
+        
+        // Track download events separately
+        if (href.includes('.pdf') || this.hasAttribute('download')) {
+            trackEvent('Download', 'resume_download', buttonText);
+        }
+    });
+});
+
+// Track homepage navigation buttons
+document.querySelectorAll('.menu-stack .btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const buttonText = this.textContent.trim();
+        const hoverText = this.getAttribute('data-hover') || '';
+        const href = this.getAttribute('href');
+        trackEvent('Homepage', 'hero_button_click', `${buttonText} (${href})`);
+        if (hoverText) {
+            trackEvent('Homepage', 'hero_button_hover_shown', hoverText);
+        }
+    });
+});
+
+// Track social media icon clicks
+document.querySelectorAll('.icon-btn, .hero__social a').forEach(icon => {
+    icon.addEventListener('click', function() {
+        const platform = this.getAttribute('aria-label') || 'Social Media';
+        const href = this.getAttribute('href') || '';
+        trackEvent('Social', 'icon_click', `${platform} (${href})`);
+    });
+});
+
+// Track portfolio cards/interactions
+document.querySelectorAll('.work-card, .leadership-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Only track if clicking on the card itself, not links inside
+        if (e.target === this || !e.target.closest('a')) {
+            const title = this.querySelector('h3')?.textContent.trim() || 'Unknown';
+            trackEvent('Portfolio', 'card_view', title);
+        }
+    });
+});
+
+// Track certificate/image views
+document.querySelectorAll('.work-image, .cert-img').forEach(image => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const alt = entry.target.getAttribute('alt') || 'Image';
+                const src = entry.target.getAttribute('src') || '';
+                trackEvent('Portfolio', 'certificate_view', alt);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(image);
+});
+
+// Track section visits (when sections come into view)
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const sectionId = entry.target.id || entry.target.className;
+            const sectionName = entry.target.querySelector('h2')?.textContent.trim() || sectionId;
+            if (sectionName) {
+                trackEvent('Engagement', 'section_view', sectionName);
+            }
+        }
+    });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('section[id], .about-section, .work-grid').forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// Track internal link clicks
+document.querySelectorAll('a[href^="#"], .portfolio-link, .intro-link-text').forEach(link => {
+    link.addEventListener('click', function() {
+        const linkText = this.textContent.trim();
+        const href = this.getAttribute('href');
+        trackEvent('Navigation', 'internal_link_click', `${linkText} (${href})`);
+    });
+});
+
+// Track external link clicks
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.addEventListener('click', function() {
+        const linkText = this.textContent.trim() || 'External Link';
+        const href = this.getAttribute('href');
+        const domain = new URL(href).hostname;
+        trackEvent('External', 'link_click', `${linkText} (${domain})`);
+    });
+});
+
+// Track Career Impact section interactions
+document.querySelectorAll('.career-impact, .transferable-skill').forEach(element => {
+    element.addEventListener('mouseenter', function() {
+        if (this.classList.contains('transferable-skill')) {
+            const skill = this.textContent.trim();
+        trackEvent('Portfolio', 'skill_hover', skill);
+        }
+    });
+});
+
+// Track form submissions (contact page)
+const contactForm = document.querySelector('form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        trackEvent('Contact', 'form_submit', 'Contact Form Submitted');
+        
+        // Track form field interactions
+        const fields = this.querySelectorAll('input, textarea, select');
+        fields.forEach(field => {
+            field.addEventListener('focus', function() {
+                trackEvent('Contact', 'form_field_focus', this.name || this.type);
+            });
+        });
+    });
+}
+
+// Track Google Form link clicks
+const googleFormLink = document.querySelector('a[href*="docs.google.com/forms"]');
+if (googleFormLink) {
+    googleFormLink.addEventListener('click', function() {
+        trackEvent('Contact', 'google_form_click', 'View Contact Form');
+    });
+}
+
+// Track header navigation links (Certifications, Work Experience, etc.)
+document.querySelectorAll('.header-nav .header-link').forEach(link => {
+    link.addEventListener('click', function() {
+        const linkText = this.textContent.trim();
+        const href = this.getAttribute('href');
+        trackEvent('Portfolio', 'header_nav_click', `${linkText} (${href})`);
+    });
+});
+
+// Track resume downloads specifically
+document.querySelectorAll('a[href*="Resume"], a[download*="Resume"], a[href$=".pdf"]').forEach(link => {
+    link.addEventListener('click', function() {
+        const fileName = this.getAttribute('href') || this.getAttribute('download') || 'resume.pdf';
+        trackEvent('Download', 'file_download', fileName);
+    });
+});
+
+// Track time on page (after 30 seconds)
+setTimeout(function() {
+    const pageName = document.title || window.location.pathname;
+    trackEvent('Engagement', 'time_on_page', pageName, 30);
+}, 30000);
+
+// Track page exit (when user leaves)
+window.addEventListener('beforeunload', function() {
+    const timeOnPage = Math.round((Date.now() - performance.timing.navigationStart) / 1000);
+    trackEvent('Engagement', 'page_exit', document.title, timeOnPage);
+});
+
