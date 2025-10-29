@@ -489,9 +489,9 @@ Email: ${email}
             // Create mailto link
             const mailtoLink = `mailto:kappabug@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
             
-            // Track form submission
+            // Track form submission (this is tracked above in the form listener, but keeping for email client tracking)
             if (typeof trackEvent !== 'undefined') {
-                trackEvent('Contact', 'form_submit', 'Contact Form Submitted');
+                trackEvent('Contact', 'form_email_client_opened', 'Email client opened with pre-filled message');
             }
             
             // Open email client
