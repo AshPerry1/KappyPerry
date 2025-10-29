@@ -2541,6 +2541,10 @@ a {
     color: var(--welcome-text);
     margin: 0;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
 }
 
 .copyright {
@@ -2551,19 +2555,20 @@ a {
 .footer-name {
     color: var(--im-text);
     font-weight: 600;
-    margin: 0 0.25rem;
 }
 
-.footer-emoji {
+.footer-smiley-icon {
     color: var(--im-text);
-    margin-left: 0.5rem;
-    font-size: 0.9rem;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
+    margin-left: 0.25rem;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    vertical-align: middle;
+    display: inline-block;
 }
 
-.footer-emoji:hover {
+.footer-smiley-icon:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
