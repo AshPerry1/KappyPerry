@@ -282,8 +282,8 @@ a {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     font-size: 0.9rem;
-    color: var(--welcome-text);
-    opacity: 1;
+    color: #FFFFFF;
+    opacity: 0.9;
 }
 
 .hero__title {
@@ -292,11 +292,11 @@ a {
     line-height: 1.02;
     font-size: clamp(36px, 6vw, 64px);
     margin: 0.25rem 0 1rem;
-    color: var(--im-text);
+    color: #FFFFFF;
 }
 
 .hero__title span {
-    color: var(--name-text);
+    color: #FFFFFF;
 }
 
 .hero__subtitle {
@@ -304,7 +304,8 @@ a {
     max-width: 52ch;
     margin-bottom: 24px;
     line-height: 1.6;
-    color: var(--desc-text);
+    color: #FFFFFF;
+    opacity: 0.95;
 }
 
 .hero__quote {
@@ -468,9 +469,9 @@ a {
 
 .menu-stack .btn {
     height: 54px;
-    background: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--button-border);
+    background: transparent;
+    color: #FFFFFF;
+    border: 2px solid rgba(255, 255, 255, 0.6);
     font-size: 0.95rem;
     transition: all 0.3s ease;
     position: relative;
@@ -494,7 +495,7 @@ a {
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-    color: var(--button-hover-text);
+    color: #FFFFFF;
 }
 
 .menu-stack .btn:hover span,
@@ -534,10 +535,11 @@ a {
 }
 
 .menu-stack .btn:hover {
-    background: var(--button-hover-bg);
-    border-color: var(--button-hover-bg);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.10);
+    box-shadow: 0 10px 20px rgba(0,0,0,.15);
+    color: #FFFFFF;
 }
 
 .btn--primary:hover,
@@ -592,17 +594,18 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: none;
-    color: var(--icon-color);
-    background: var(--icon-bg);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    color: #FFFFFF;
+    background: transparent;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .icon-btn:hover {
     transform: translateY(-2px) scale(1.05);
-    background: var(--icon-hover-bg);
-    color: var(--icon-hover-color);
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
