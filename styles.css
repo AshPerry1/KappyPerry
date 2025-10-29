@@ -2520,6 +2520,68 @@ a {
     }
 }
 
+/* Site Footer */
+.site-footer {
+    margin-top: 4rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--light-gray);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: var(--welcome-text);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.copyright {
+    color: var(--im-text);
+    font-size: 0.8rem;
+}
+
+.footer-name {
+    color: var(--im-text);
+    font-weight: 600;
+    margin: 0 0.25rem;
+}
+
+.footer-emoji {
+    color: var(--im-text);
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.footer-emoji:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 1rem 0;
+    }
+    
+    .footer-text {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-text {
+        font-size: 0.65rem;
+    }
+}
+
 /* CTA Section */
 .cta-section {
     padding: 60px 0;
