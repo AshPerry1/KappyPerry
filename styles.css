@@ -1959,6 +1959,10 @@ a {
     align-items: start;
 }
 
+.work-card:not(:has(.work-image)) {
+    grid-template-columns: 1fr;
+}
+
 .work-image {
     width: 100%;
 }
