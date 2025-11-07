@@ -37,7 +37,7 @@
 - ✅ All other contact info present: email, LinkedIn, phone, location
 
 ### 2. **Resume Download**
-- ✅ Resume PDF linked: `Kappy Resume UPDATED.pdf`
+- ✅ Resume download linked: `Kappy Resume UPDATED.docx`
 - ⚠️ **NEED TO VERIFY**: Download button works correctly
 
 ### 3. **Images & Assets**
